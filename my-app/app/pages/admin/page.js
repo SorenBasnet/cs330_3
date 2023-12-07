@@ -60,14 +60,14 @@ export default function Home() {
                     <Link href="/clothings">Clothings</Link>
                     {showClothingDropdown && (
                       <div style={dropdownStyle}>
-                        <Link href="/admin/men/page" style={navStyle}>Men&apos;s Clothing</Link>
-                        <Link href="/admin/women/page" style={navStyle}>Women&apos;s Clothing</Link>
+                        <Link href="/pages/admin/men/" style={navStyle}>Men&apos;s Clothing</Link>
+                        <Link href="/pages/admin/women/" style={navStyle}>Women&apos;s Clothing</Link>
                       </div>
                     )}
                   </div>
                 </th>
 
-                <th style={navStyle}><Link href="/admin/books/page">Books</Link></th>
+                <th style={navStyle}><Link href="/pages/admin/books/">Books</Link></th>
               </tr>
             </thead>
           </table>

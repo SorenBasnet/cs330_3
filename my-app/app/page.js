@@ -42,7 +42,7 @@ export default function Home() {
     const password = event.target.password.value;
 
     if (username === "admin" && password === "luther2025") {
-      router.push('/admin/'); 
+      router.push('/pages/admin/'); 
     } else {
       alert('Invalid username or password');
     }
