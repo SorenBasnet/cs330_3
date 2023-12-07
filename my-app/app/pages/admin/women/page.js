@@ -107,11 +107,11 @@ return (
       {showForm && (
         <div style={{ textAlign: 'center', padding: '20px' }}>
      
-          <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Name" /><br /><br />
-          <input type="number" name="price" value={formData.price} onChange={handleChange} placeholder="Price" /><br /><br />
-          <input type="text" name="size" value={formData.size} onChange={handleChange} placeholder="Size" /><br /><br />
-          <input type="text" name="color" value={formData.color} onChange={handleChange} placeholder="Color" /><br /><br />
-          <input type="text" name="image" value={formData.image} onChange={handleChange} placeholder="Image URL" /><br /><br />
+          <input className="text-black" type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Name" /><br /><br />
+          <input className="text-black" type="number" name="price" value={formData.price} onChange={handleChange} placeholder="Price" /><br /><br />
+          <input className="text-black" type="text" name="size" value={formData.size} onChange={handleChange} placeholder="Size" /><br /><br />
+          <input className="text-black" type="text" name="color" value={formData.color} onChange={handleChange} placeholder="Color" /><br /><br />
+          <input className="text-black" type="text" name="image" value={formData.image} onChange={handleChange} placeholder="Image URL" /><br /><br />
           <button onClick={handleSubmit} className='bg-blue-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full'>Submit</button>
           <button onClick={closeForm} className='bg-yellow-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full'>Cancel</button>
 

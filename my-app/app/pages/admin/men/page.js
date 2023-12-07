@@ -127,57 +127,62 @@ const openFormForEdit = (item) => {
   };
 
   const handleSubmit = async () => {
+
+    const action = editingItem ? handleEdit : handleAdd;
+    action(editingItem ? editingItem.id : null, formData);
+    closeForm();
+
     // const action = editingItem ? handleEdit : handleAdd;
     // action(editingItem ? editingItem.id : null, formData);
     // closeForm();
 
-    const id = document.getElementById("id");
+    // const id = document.getElementById("id");
 
-    const name = document.getElementById("name");
+    // const name = document.getElementById("name");
 
-    const price = document.getElementById("price");
+    // const price = document.getElementById("price");
 
-    const size = document.getElementById("size"); 
+    // const size = document.getElementById("size"); 
 
-    const color = document.getElementById("color"); 
+    // const color = document.getElementById("color"); 
 
-    const image = document.getElementById("imageURL");
+    // const image = document.getElementById("imageURL");
 
-    const category = document.getElementById("category"); 
+    // const category = document.getElementById("category"); 
 
 
-    try{
+    // try{
 
-    const response = await fetch("https://sabina2002.pythonanywhere.com/api/v1/admin/clothing/men", {
-      method:'POST',
-      headers:{
-        'Content-Type': 'application/json',
-      }, 
-      body:JSON.stringify({ 'id': id.value, 
-      'name': name.value, 'price':price.value , 
-      'size': size.value, 
-      'color':color.value, 
-      'image':image.value, 
-      'category_id': category.value, 
-        'status':0}),
+    // const response = await fetch("https://sabina2002.pythonanywhere.com/api/v1/admin/clothing/men", {
+    //   method:'POST',
+    //   headers:{
+    //     'Content-Type': 'application/json',
+    //   }, 
+    //   body:JSON.stringify({ 'id': id.value, 
+    //   'name': name.value, 'price':price.value , 
+    //   'size': size.value, 
+    //   'color':color.value, 
+    //   'image':image.value, 
+    //   'category_id': category.value, 
+    //     'status':0}),
 
-    })
+    // })
 
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
+    // if (!response.ok) {
+    //   throw new Error('Network response was not ok');
+    // }
 
-    const responseData = await response.json();
-      console.log('Data sent successfully:', responseData);
-      window.alert("Data added successfully !!");
-      closeForm();
-      // location.reload();
+    // const responseData = await response.json();
+    //   console.log('Data sent successfully:', responseData);
+    //   window.alert("Data added successfully !!");
+    //   closeForm();
+    //   // location.reload();
 
-    } 
+    // } 
     
-    catch (error) {
-      console.error('There was a problem with the fetch operation:', error);
-    }
+    // catch (error) {
+    //   console.error('There was a problem with the fetch operation:', error);
+    // }
 
 
 
