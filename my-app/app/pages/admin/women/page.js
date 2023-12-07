@@ -97,7 +97,7 @@ return (
     <div>
       <div style={{ textAlign: 'center', padding: '20px' }}>
       <h1>Women's Clothing</h1>
-      <button onClick={openFormForAdd}>Add New Item</button>
+      {/* <button onClick={openFormForAdd}>Add New Item</button> */}
       </div>
       {showForm && (
         <div style={{ textAlign: 'center', padding: '20px' }}>

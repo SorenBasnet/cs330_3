@@ -250,7 +250,7 @@ export default function Home() {
             justifyContent:"center",
             alignItems:"center"
           }}>
-          <p style={{navStyle}} className='text-black'>&copy; Site Managed and Maintained by<br /><a onClick={() => setShowForm(!showForm)} style={navStyle}>Hogwarts Tech Services</a></p>
+          <p style={{navStyle}} className='text-black'>&copy; Site Managed and Maintained by<br /><a onClick={() => setShowForm(!showForm)} style={navStyle}><u>Hogwarts Tech Services</u></a></p>
           </div>
         </footer>
 

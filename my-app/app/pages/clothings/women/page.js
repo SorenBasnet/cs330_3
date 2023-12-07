@@ -16,19 +16,40 @@ export default function WomenClothingPage() {
       .catch(error => console.error('Error fetching women\'s clothing data: ', error));
   }, []);
 
-  const addToCart = (itemId) => {
-    const quantity = 1; 
-    fetch('http://127.0.0.1:5000/api/v1/add_to_cart', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ type: 'mens', id: itemId, quantity }),
-    })
-    .then(response => response.json())
-    .then(data => {
-      alert('Item added to cart');
-    })
-    .catch(error => console.error('Error adding item to cart: ', error));
-  };
+  const statusUpdate = async (id) => {
+
+    const status = 1;
+
+    try{
+        const response = await 
+            fetch(`http://127.0.0.1:5000/api/v1/admin/clothing/women/${id}`, {
+
+            method:'PUT', 
+            headers: {
+                'Content-Type':'application/json',
+            },
+
+            body:JSON.stringify({'id': id, 'status': status}),
+
+
+            })
+
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+              }
+
+            const responseData = await response.json();
+            console.log('Data sent successfully:', responseData);
+            window.alert('Data updated successfully');
+            location.reload();
+           
+    }
+    catch(error) {
+        console.error('There was a problem with the fetch operation:', error);
+      }
+
+};
+
 
   return (
     <>
@@ -47,9 +68,14 @@ export default function WomenClothingPage() {
       <Nav />
       <div style={{ textAlign: 'center', padding: '20px' }}>
       <h1>Women's Clothing</h1>
-      <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+      <div style={{ display: 'flex',justifyContent: 'center', flexWrap: 'wrap' }}>
+
+
+        
         {items.map(item => (
           <div key={item.id} style={{ margin: '10px', padding: '10px', border: '1px solid #ddd' }}>
+            
+            
             <h2>{item.name}</h2>
 
          
@@ -58,7 +84,11 @@ export default function WomenClothingPage() {
             <p>Size: {item.size}</p>
             <p>Color: {item.color}</p>
             <p>Category: {item.category_name}</p>
-            <button onClick={() => addToCart(item.id)}>Add to Cart</button>
+            {/* <button onClick={() => addToCart(item.id)}>Add to Cart</button> */}
+            {(item.status === 0) ? 
+
+(<button onClick={() => statusUpdate(item.id)} class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Reserve</button>) : (<button class="bg-red-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" >Reserved</button>)}
+
           </div>
         ))}
       </div>

@@ -48,6 +48,7 @@ export default function Books() {
 
                 const responseData = await response.json();
                 console.log('Data sent successfully:', responseData);
+                location.reload();
                
         }
         catch(error) {

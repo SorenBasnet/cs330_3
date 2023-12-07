@@ -23,46 +23,6 @@ export default function BooksPage() {
       .catch(error => console.error('Error fetching books data: ', error));
   }, []);
 
-  const handleAdd = (newBook) => {
-    fetch('http://127.0.0.1:5000/api/v1/admin/books', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(newBook),
-    })
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      return response.json();
-    })
-    .then(data => {
-      if (data && data.id) {
-        setBooks([...books, data]);
-        alert('Book added successfully');
-        console.log(data);
-        return books.json();
-      } else {
-        console.error('Unexpected response data:', data);
-      }
-    })
-    .catch(error => {
-      console.error('Error adding new book:', error);
-      alert('Error adding new book' );
-    });
-  };
-
-  const handleEdit = (bookId, updatedBook) => {
-    fetch(`http://127.0.0.1:5000/api/v1/admin/books/${bookId}`, {
-      method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(updatedBook),
-    })
-    .then(response => response.json())
-    .then(data => {
-      setBooks(books.map(book => book.id === bookId ? data : book));
-    })
-    .catch(error => console.error('Error updating book:', error));
-  };
 
   const handleDelete = (bookId) => {
     fetch(`http://127.0.0.1:5000/api/v1/admin/books/${bookId}`, {
@@ -82,14 +42,6 @@ export default function BooksPage() {
     setEditingBook(null);
     setFormData({ title: '', author: '', genre: '', publicationYear: '' });
     setShowForm(true);
-  };
-
-  const openFormForEdit = (book) => {
-    setEditingBook(book);
-    setFormData({ ...book });
-    setShowForm(true);
-
-    
   };
 
   const closeForm = () => {

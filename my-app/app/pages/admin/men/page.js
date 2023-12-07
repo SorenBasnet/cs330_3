@@ -108,7 +108,7 @@ const openFormForEdit = (item) => {
 
 
     setEditingItem(null);
-    setFormData({ name: '', price: '', size: '', color: '', image: ''}); // Reset form data for new item
+    setFormData({ id:'',name: '', price: '', size: '', color: '', image: '', category_id:''}); // Reset form data for new item
     setShowForm(true);
   };
 
@@ -124,28 +124,84 @@ const openFormForEdit = (item) => {
     setFormData(prevFormData => ({ ...prevFormData, [name]: value }));
   };
 
-  const handleSubmit = () => {
-    const action = editingItem ? handleEdit : handleAdd;
-    action(editingItem ? editingItem.id : null, formData);
-    closeForm();
+  const handleSubmit = async () => {
+    // const action = editingItem ? handleEdit : handleAdd;
+    // action(editingItem ? editingItem.id : null, formData);
+    // closeForm();
+
+    const id = document.getElementById("id");
+
+    const name = document.getElementById("name");
+
+    const price = document.getElementById("price");
+
+    const size = document.getElementById("size"); 
+
+    const color = document.getElementById("color"); 
+
+    const image = document.getElementById("imageURL");
+
+    const category = document.getElementById("category"); 
+
+
+    try{
+
+    const response = await fetch("http://127.0.0.1:5000/api/v1/admin/clothing/men", {
+      method:'POST',
+      headers:{
+        'Content-Type': 'application/json',
+      }, 
+      body:JSON.stringify({ 'id': id.value, 
+      'name': name.value, 'price':price.value , 
+      'size': size.value, 
+      'color':color.value, 
+      'image':image.value, 
+      'category_id': category.value, 
+        'status':0}),
+
+    })
+
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+
+    const responseData = await response.json();
+      console.log('Data sent successfully:', responseData);
+      window.alert("Data added successfully !!");
+      closeForm();
+      // location.reload();
+
+    } 
+    
+    catch (error) {
+      console.error('There was a problem with the fetch operation:', error);
+    }
+
+
+
   };
 
   return (
     <div className='bg-zinc-700 '>
       <div style={{ textAlign: 'center', padding: '20px' }}>
       <h1 className='text-white text-4xl font-semibold'>Men's Clothing</h1>
-      <button onClick={openFormForAdd}>Add New Item</button>
+      {/* <button onClick={openFormForAdd}>Add New Item</button> */}
       </div>
       {showForm && (
-        <div style={{ textAlign: 'center', padding: '20px' }}>          <input className="text-black" id="name" type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Name" /><br /><br />
+
+        <div style={{ textAlign: 'center', padding: '20px' }}>  
+                 <input className="text-black" id="id" type="text" name="id" value={formData.id} onChange={handleChange} placeholder="ID" /><br /><br />
+       
+         <input className="text-black" id="name" type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Name" /><br /><br />
           <input className="text-black" id="price" type="number" name="price" value={formData.price} onChange={handleChange} placeholder="Price" /><br /><br />
           <input className="text-black" id="size" type="text" name="size" value={formData.size} onChange={handleChange} placeholder="Size" /><br /><br />
           <input className="text-black" id="color" type="text" name="color" value={formData.color} onChange={handleChange} placeholder="Color" /><br /><br />
           <input className="text-black" id="imageURL" type="text" name="image" value={formData.image} onChange={handleChange} placeholder="Image URL" /><br /><br />
-          {/* <input className="text-black" id="category" type="text" name="image" value={formData.image} onChange={handleChange} placeholder="Category" ></input><br /><br /> */}
+          <input className="text-black" id="category" type="text" name="category" value={formData.category} onChange={handleChange} placeholder="Category" ></input><br /><br />
           <button onClick={handleSubmit} className="bg-yellow-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full">Submit</button>
           <button onClick={closeForm} className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full">Cancel</button><br />
         </div>
+  
       )}
       <div style={{ display: 'flex', flexWrap: 'wrap' }}>
         {items.map(item => (
