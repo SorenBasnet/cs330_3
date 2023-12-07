@@ -11,6 +11,9 @@ export default function BooksPage() {
     author: '',
     genre: '',
     publicationYear: '',
+    id:'', 
+    isbn:'', 
+    link:''
   });
 
   useEffect(() => {
@@ -101,7 +104,11 @@ export default function BooksPage() {
 
   const handleSubmit = async () => {
 
+    const id = document.getElementById("id");
+
     const title = document.getElementById("title");
+
+    const isbn = document.getElementById("isbn");
 
     const author = document.getElementById("author"); 
 
@@ -109,7 +116,8 @@ export default function BooksPage() {
 
     const pubYear = document.getElementById("pubYear");
 
-    var data = {title:title, author:author, genre:genre, pubYear:pubYear}
+    const link = document.getElementById("link"); 
+
 
     try{
 
@@ -118,7 +126,13 @@ export default function BooksPage() {
       headers:{
         'Content-Type': 'application/json',
       }, 
-      body:JSON.stringify({ 'id': 1001, 'title': title.value, 'isbn':"112222" , 'publication_year': pubYear.value, 'image':'soren.jpg', 'genre':"genre" }),
+      body:JSON.stringify({ 'id': id.value, 
+      'title': title.value, 'isbn':isbn.value , 
+      'publication_year': pubYear.value, 
+      'image':'soren.jpg', 
+      'genre':genre.value, 
+      'status': 0, 
+        'link':link.value}),
 
     })
 
@@ -128,6 +142,9 @@ export default function BooksPage() {
 
     const responseData = await response.json();
       console.log('Data sent successfully:', responseData);
+      window.alert("Data added successfully !!");
+      closeForm();
+
     } 
     
     catch (error) {
@@ -152,11 +169,13 @@ export default function BooksPage() {
 <div style={{ textAlign: 'center', padding: '20px' }}>
 
         <div className='justify-self-center'>
-
-          <input className="text-black'" id="title" type="text" name="title" value={formData.title} onChange={handleChange} placeholder="Title" /><br /><br />
-          <input className="text-black" id="author" type="text" name="author" value={formData.author} onChange={handleChange} placeholder="Author" /><br /> <br />
-          <input className="text-black" id="genre" type="text" name="genre" value={formData.genre} onChange={handleChange} placeholder="Genre" /><br /> <br />
+          <input className='text-black' id="id" type='text' name='id' value={formData.id} onChange={handleChange} placeholder='ID' /><br /><br />
+          <input className="text-black" id="title" type="text" name="title" value={formData.title} onChange={handleChange} placeholder="Title" /><br /><br />
+          <input className="text-black" id="isbn" type="text" name="isbn" value={formData.isbn} onChange={handleChange} placeholder="ISBN" /><br /> <br />
+          {/* <input className="text-black" id="author" type="text" name="author" value={formData.author} onChange={handleChange} placeholder="Author" /><br /> <br /> */}
           <input className="text-black" id="pubYear" type="number" name="publicationYear" value={formData.publicationYear} onChange={handleChange} placeholder="Publication Year" /><br /> <br />
+          <input className="text-black" id="genre" type="text" name="genre" value={formData.genre} onChange={handleChange} placeholder="Genre" /><br /> <br />
+          <input className="text-black" id="link" type="text" name="link" value={formData.link} onChange={handleChange} placeholder="Link" /><br /> <br />
 
           <button onClick={handleSubmit} className='class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"'>Submit</button>
           <button onClick={closeForm} className='class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full"'>Cancel</button>
