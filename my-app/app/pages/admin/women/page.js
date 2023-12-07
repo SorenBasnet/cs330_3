@@ -73,9 +73,13 @@ const handleDelete = (itemId) => {
   };
 
   const openFormForEdit = (item) => {
-    setEditingItem(item);
-    setFormData({ ...item }); // Pre-fill form with item data for editing
-    setShowForm(true);
+    // setEditingItem(item);
+    // setFormData({ ...item }); // Pre-fill form with item data for editing
+    // setShowForm(true);
+
+
+
+
   };
 
   const closeForm = () => {
@@ -112,20 +116,20 @@ return (
         {items.map(item => (
           <div key={item.id} style={{ margin: '10px', padding: '10px', border: '1px solid #ddd' }}>
             <h2>{item.name}</h2>
-            <Image 
+            {/* <Image 
 
               src="/static/Images/WomenClothes/${item.image}"
               width={20}
               height={30}
 
-            />
-            <img src={`/static/Images/WomenClothes/${item.image}`} alt={item.name} style={{ width: '100px', height: '100px' }} />
+            /> */}
+            <img src={item.image} alt={item.name} style={{ width: '100px', height: '100px' }} />
             <p>Price: ${item.price}</p>
             <p>Size: {item.size}</p>
             <p>Color: {item.color}</p>
             <p>Category: {item.category_name}</p>
-            <button onClick={() => openFormForEdit(item)}>Edit</button>
-            <button onClick={() => handleDelete(item.id)}>Delete</button>
+            {/* <button onClick={() => openFormForEdit(item)}>Edit</button> */}
+            <button onClick={() => handleDelete(item.id)} class="bg-red-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Delete</button>
           </div>
         ))}
       </div>

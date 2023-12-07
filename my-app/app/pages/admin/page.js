@@ -73,12 +73,26 @@ export default function Home() {
           </table>
         </div>
         <br />
+
+        <div className='p-20'>
+        <p>Mission and Vision:<br />
+At the heart of our Sustainability Site is a commitment to fostering a sustainable future. We believe in harnessing the power of collective action and innovative solutions to address environmental challenges. As administrators, you are integral to realizing our mission of promoting sustainability, raising awareness, and inspiring meaningful change.
+<br /><br />
+Your Role:<br />
+As part of the admin team, you will have a unique opportunity to shape the content, engage with our community, and contribute to the growth of our platform. Whether you are managing discussions, curating resources, or implementing new features, your efforts will directly impact the success of our sustainability initiatives.
+<br /><br />
+Collaboration and Communication:<br />
+Open communication and collaboration are the cornerstones of our success. We encourage you to actively engage with fellow team members, share ideas, and explore new ways to enhance our platform. Your input is invaluable in creating a vibrant and inclusive space for our community.
+<br /><br />
+Resources:<br />
+<br />
+To support you in your role, we have curated a comprehensive set of resources, including guidelines, tutorials, and FAQs. These materials are designed to empower you with the knowledge and tools necessary to navigate your responsibilities effectively. Don't hesitate to reach out if you have any questions or need assistance.</p>
+
+      </div>
         
       </div>
 
-      <div>
-
-      </div>
+     
     </>
   );
 }

@@ -10,6 +10,7 @@ const getUserData = async () => {
     return res.json();
 };
 
+
 export default function Books() {
     const [posts, setPosts] = useState([]);
     const [reservedBooks, setReservedBooks] = useState({});
@@ -93,7 +94,9 @@ export default function Books() {
 
                 {posts.map((post) => (
                     <div key={post.id} style={{ border: '1px solid #ccc', padding: '10px', margin: '10px', width: '250px' }}>
-                        <img src={post.image} alt="Book Cover" style={{ maxWidth: '100%', height: 'auto' }} />
+                        <img src={'https://static.standard.co.uk/s3fs-public/thumbnails/image/2019/10/04/15/gettyimages-1146873446.jpg?width=1200'} alt="Book Cover" style={{ maxWidth: '100%', height: 'auto' }} />
+                        
+                        
                         <div>
 
                             <p>Genre: {post.genre}</p>

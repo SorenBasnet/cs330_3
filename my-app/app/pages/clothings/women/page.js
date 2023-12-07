@@ -52,14 +52,8 @@ export default function WomenClothingPage() {
           <div key={item.id} style={{ margin: '10px', padding: '10px', border: '1px solid #ddd' }}>
             <h2>{item.name}</h2>
 
-            <Image 
-
-src="/blouse.jpg"
-width={20}
-height={30}
-
-/>
-            <img src={`/static/Images/WomenClothes/${item.image}`} alt={item.name} style={{ width: '100px', height: '100px' }} />
+         
+            <img src={item.image} alt={item.name} style={{ width: '100px', height: '100px' }} />
             <p>Price: ${item.price}</p>
             <p>Size: {item.size}</p>
             <p>Color: {item.color}</p>
