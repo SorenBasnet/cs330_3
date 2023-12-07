@@ -131,12 +131,13 @@ const openFormForEdit = (item) => {
   };
 
   return (
-    <div>
-      <h1>Men's Clothing</h1>
+    <div className='bg-zinc-700 '>
+      <div style={{ textAlign: 'center', padding: '20px' }}>
+      <h1 className='text-white text-4xl font-semibold'>Men's Clothing</h1>
       <button onClick={openFormForAdd}>Add New Item</button>
+      </div>
       {showForm && (
-        <div>
-          <input className="text-black" id="name" type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Name" /><br /><br />
+        <div style={{ textAlign: 'center', padding: '20px' }}>          <input className="text-black" id="name" type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Name" /><br /><br />
           <input className="text-black" id="price" type="number" name="price" value={formData.price} onChange={handleChange} placeholder="Price" /><br /><br />
           <input className="text-black" id="size" type="text" name="size" value={formData.size} onChange={handleChange} placeholder="Size" /><br /><br />
           <input className="text-black" id="color" type="text" name="color" value={formData.color} onChange={handleChange} placeholder="Color" /><br /><br />
@@ -150,13 +151,13 @@ const openFormForEdit = (item) => {
         {items.map(item => (
           <div key={item.id} style={{ margin: '10px', padding: '10px', border: '1px solid #ddd' }}>
             <h2>{item.name}</h2>
-            <img src={`/static/Images/MenClothes/${item.image}`} alt={item.name} style={{ width: '100px', height: '100px' }} />
+            <img src={item.image} alt={item.name} style={{ width: '100px', height: '100px' }} />
             <p>Price: ${item.price}</p>
             <p>Size: {item.size}</p>
             <p>Color: {item.color}</p>
             <p>Category: {item.category_name}</p>
-            <button onClick={() => openFormForEdit(item)}>Edit</button>
-            <button onClick={() => handleDelete(item.id)}>Delete</button>
+            <button onClick={() => openFormForEdit(item)} className='class="bg-blue-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full"'>Edit</button>
+            <button onClick={() => handleDelete(item.id)} className='class="bg-blue-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full"'>Delete</button>
           </div>
         ))}
       </div>

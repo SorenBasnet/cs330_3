@@ -170,9 +170,11 @@ export default function BooksPage() {
  
       <div style={{ display: 'flex', flexWrap: 'wrap' }}>
         {books.map(book => (
-          <div key={book.id} style={{ margin: '10px', padding: '10px', border: '1px solid #ddd' }}>
+          <div key={book.id} style={{ margin: '10px', padding: '10px', border: '1px solid #ddd', textAlign: 'center' }}>
             <h2>{book.title}</h2>
             <br />
+            <img src={book.link} alt={book.name} style={{ width: '100px', height: '100px' }} />
+ 
             {/* <p>Author: {book.author}</p> */}
             <p>Genre: {book.genre}</p>
             <p>ISBN : {book.isbn}</p>
