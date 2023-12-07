@@ -1,6 +1,8 @@
 "use client"
 
 import React, { useState, useEffect } from 'react';
+import Nav from '../../../components/Nav/page';
+
 
 export default function MensClothingPage() {
   const [items, setItems] = useState([]);
@@ -183,7 +185,9 @@ const openFormForEdit = (item) => {
 
   return (
     <div className='bg-zinc-700 '>
+      <Nav />
       <div style={{ textAlign: 'center', padding: '20px' }}>
+        <br />
       <h1 className='text-white text-4xl font-semibold'>Men's Clothing</h1>
       {/* <button onClick={openFormForAdd}>Add New Item</button> */}
       </div>

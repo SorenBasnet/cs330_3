@@ -2,6 +2,8 @@
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
+import Nav from '../../../components/Nav/page';
+
 
 
 
@@ -94,14 +96,17 @@ const handleDelete = (itemId) => {
     closeForm();
   };
 return (
-    <div>
+  <div className='bg-zinc-700 '>
+     <Nav />
       <div style={{ textAlign: 'center', padding: '20px' }}>
-      <h1>Women's Clothing</h1>
+        <br />
+      <h1 className='text-white text-4xl font-semibold'>Women's Clothing</h1>
       {/* <button onClick={openFormForAdd}>Add New Item</button> */}
       </div>
+     
       {showForm && (
         <div style={{ textAlign: 'center', padding: '20px' }}>
-        <div>
+     
           <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Name" /><br /><br />
           <input type="number" name="price" value={formData.price} onChange={handleChange} placeholder="Price" /><br /><br />
           <input type="text" name="size" value={formData.size} onChange={handleChange} placeholder="Size" /><br /><br />
@@ -109,7 +114,7 @@ return (
           <input type="text" name="image" value={formData.image} onChange={handleChange} placeholder="Image URL" /><br /><br />
           <button onClick={handleSubmit} className='bg-blue-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full'>Submit</button>
           <button onClick={closeForm} className='bg-yellow-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full'>Cancel</button>
-        </div>
+
         </div>
       )}
       <div style={{ display: 'flex', flexWrap: 'wrap' }}>

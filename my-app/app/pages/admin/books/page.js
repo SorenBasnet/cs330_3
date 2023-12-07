@@ -1,6 +1,8 @@
 "use client"
 
 import React, { useState, useEffect } from 'react';
+import Nav from '../../../components/Nav/page';
+
 
 export default function BooksPage() {
   const [books, setBooks] = useState([]);
@@ -70,6 +72,11 @@ export default function BooksPage() {
 
     const link = document.getElementById("link"); 
 
+    if(id.value == null || id.value == ""){
+      window.alert("Please input ID value");
+      return;
+    }
+
 
     try{
 
@@ -110,6 +117,7 @@ export default function BooksPage() {
 
     
       <div className='bg-zinc-700 '>
+        <Nav />
       <div style={{ textAlign: 'center', padding: '20px' }}>
       <h1 className='text-white text-4xl font-semibold' >Books</h1>
       
