@@ -13,7 +13,7 @@ export default function Home() {
   
 
   useEffect(() => {
-    fetch('http://localhost:5000/')
+    fetch('https://sabina2002.pythonanywhere.com/')
       .then((response) => response.json())
       .then((data) => setData(data))
       .catch((error) => console.error('Error fetching data: ', error));

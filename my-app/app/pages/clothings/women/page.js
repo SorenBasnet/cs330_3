@@ -10,7 +10,7 @@ export default function WomenClothingPage() {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    fetch('http://127.0.0.1:5000/api/v1/clothing/women')
+    fetch('https://sabina2002.pythonanywhere.com/api/v1/clothing/women')
       .then(response => response.json())
       .then(data => setItems(data))
       .catch(error => console.error('Error fetching women\'s clothing data: ', error));
@@ -22,7 +22,7 @@ export default function WomenClothingPage() {
 
     try{
         const response = await 
-            fetch(`http://127.0.0.1:5000/api/v1/admin/clothing/women/${id}`, {
+            fetch(`https://sabina2002.pythonanywhere.com/api/v1/admin/clothing/women/${id}`, {
 
             method:'PUT', 
             headers: {

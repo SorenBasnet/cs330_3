@@ -6,7 +6,7 @@ import Nav from '../../components/Nav/page';
 import React, { useState, useEffect } from 'react';
 
 const getUserData = async () => {
-    const res = await fetch("http://127.0.0.1:5000/api/v1/books");
+    const res = await fetch("https://sabina2002.pythonanywhere.com/api/v1/books");
     return res.json();
 };
 
@@ -30,7 +30,7 @@ export default function Books() {
 
         try{
             const response = await 
-                fetch(`http://127.0.0.1:5000/api/v1/admin/books/${id}`, {
+                fetch(`https://sabina2002.pythonanywhere.com/api/v1/admin/books/${id}`, {
 
                 method:'PUT', 
                 headers: {

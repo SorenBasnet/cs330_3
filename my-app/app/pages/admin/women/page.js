@@ -18,7 +18,7 @@ export default function WomensClothingPage() {
   });
 
   useEffect(() => {
-    fetch('http://127.0.0.1:5000/api/v1/admin/clothing/women')
+    fetch('https://sabina2002.pythonanywhere.com/api/v1/admin/clothing/women')
       .then(response => response.json())
       .then(data => setItems(data))
       .catch(error => console.error('Error fetching men\'s clothing data: ', error));
@@ -26,7 +26,7 @@ export default function WomensClothingPage() {
 
 
 const handleAdd = (newItem) => {
-  fetch('http://127.0.0.1:5000/api/v1/admin/clothing/women', {
+  fetch('https://sabina2002.pythonanywhere.com/api/v1/admin/clothing/women', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(newItem),
@@ -39,7 +39,7 @@ const handleAdd = (newItem) => {
 };
 
 const handleEdit = (itemId, updatedItem) => {
-  fetch(`http://127.0.0.1:5000/api/v1/admin/clothing/women/${itemId}`, {
+  fetch(`https://sabina2002.pythonanywhere.com/api/v1/admin/clothing/women/${itemId}`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(updatedItem),
@@ -52,7 +52,7 @@ const handleEdit = (itemId, updatedItem) => {
 };
 
 const handleDelete = (itemId) => {
-  fetch(`http://127.0.0.1:5000/api/v1/admin/clothing/women/${itemId}`, { 
+  fetch(`https://sabina2002.pythonanywhere.com/api/v1/admin/clothing/women/${itemId}`, { 
     method: 'DELETE' 
   })
   .then(response => {

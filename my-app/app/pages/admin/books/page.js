@@ -17,7 +17,7 @@ export default function BooksPage() {
   });
 
   useEffect(() => {
-    fetch('http://127.0.0.1:5000/api/v1/admin/books')
+    fetch('https://sabina2002.pythonanywhere.com/api/v1/admin/books')
       .then(response => response.json())
       .then(data => setBooks(data))
       .catch(error => console.error('Error fetching books data: ', error));
@@ -25,7 +25,7 @@ export default function BooksPage() {
 
 
   const handleDelete = (bookId) => {
-    fetch(`http://127.0.0.1:5000/api/v1/admin/books/${bookId}`, {
+    fetch(`https://sabina2002.pythonanywhere.com/api/v1/admin/books/${bookId}`, {
       method: 'DELETE',
     })
     .then(response => {
@@ -73,7 +73,7 @@ export default function BooksPage() {
 
     try{
 
-    const response = await fetch("http://127.0.0.1:5000/api/v1/admin/books", {
+    const response = await fetch("https://sabina2002.pythonanywhere.com/api/v1/admin/books", {
       method:'POST',
       headers:{
         'Content-Type': 'application/json',

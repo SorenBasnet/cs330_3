@@ -15,7 +15,7 @@ export default function MensClothingPage() {
   });
 
   useEffect(() => {
-    fetch('http://127.0.0.1:5000/api/v1/admin/clothing/men')
+    fetch('https://sabina2002.pythonanywhere.com/api/v1/admin/clothing/men')
       .then(response => response.json())
       .then(data => setItems(data))
       .catch(error => console.error('Error fetching men\'s clothing data: ', error));
@@ -23,7 +23,7 @@ export default function MensClothingPage() {
 
 
 const handleAdd = (newItem) => {
-  fetch('http://127.0.0.1:5000/api/v1/admin/clothing/men', {
+  fetch('https://sabina2002.pythonanywhere.com/api/v1/admin/clothing/men', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(newItem),
@@ -36,7 +36,7 @@ const handleAdd = (newItem) => {
 };
 
 const handleEdit = (itemId, updatedItem) => {
-  fetch(`http://127.0.0.1:5000/api/v1/admin/clothing/men/${itemId}`, {
+  fetch(`https://sabina2002.pythonanywhere.com/api/v1/admin/clothing/men/${itemId}`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(updatedItem),
@@ -49,7 +49,7 @@ const handleEdit = (itemId, updatedItem) => {
 };
 
 const handleDelete = (itemId) => {
-  fetch(`http://127.0.0.1:5000/api/v1/admin/clothing/men/${itemId}`, { 
+  fetch(`https://sabina2002.pythonanywhere.com/api/v1/admin/clothing/men/${itemId}`, { 
     method: 'DELETE' 
   })
   .then(response => {
@@ -146,7 +146,7 @@ const openFormForEdit = (item) => {
 
     try{
 
-    const response = await fetch("http://127.0.0.1:5000/api/v1/admin/clothing/men", {
+    const response = await fetch("https://sabina2002.pythonanywhere.com/api/v1/admin/clothing/men", {
       method:'POST',
       headers:{
         'Content-Type': 'application/json',
