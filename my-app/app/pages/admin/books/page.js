@@ -85,6 +85,8 @@ export default function BooksPage() {
     setEditingBook(book);
     setFormData({ ...book });
     setShowForm(true);
+
+    
   };
 
   const closeForm = () => {
@@ -170,10 +172,12 @@ export default function BooksPage() {
         {books.map(book => (
           <div key={book.id} style={{ margin: '10px', padding: '10px', border: '1px solid #ddd' }}>
             <h2>{book.title}</h2>
-            <p>Author: {book.author}</p>
+            <br />
+            {/* <p>Author: {book.author}</p> */}
             <p>Genre: {book.genre}</p>
-            <p>Publication Year: {book.publicationYear}</p>
-            <button onClick={() => openFormForEdit(book)} className='class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"'>Edit</button>
+            <p>ISBN : {book.isbn}</p>
+            <p>Publication Year: {book.publication_year}</p>
+            {/* <button onClick={() => openFormForEdit(book)} className='class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"'>Edit</button> */}
             <button onClick={() => handleDelete(book.id)} className='class="bg-blue-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full"'>Delete</button>
           </div>
         ))}

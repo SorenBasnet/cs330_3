@@ -54,7 +54,7 @@ export default function MensClothingPage() {
             <p>Size: {item.size}</p>
             <p>Color: {item.color}</p>
             <p>Category: {item.category_name}</p>
-            <button onClick={() => addToCart(item.id)}>Add to Cart</button>
+            {/* <button onClick={() => addToCart(item.id)}>Add to Cart</button> */}
           </div>
         ))}
       </div>

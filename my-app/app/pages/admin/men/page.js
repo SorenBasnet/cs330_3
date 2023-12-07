@@ -62,55 +62,57 @@ const handleDelete = (itemId) => {
   .catch(error => console.error('Error:', error));
 };
 
+const openFormForEdit = (item) => {
+  setEditingItem(item);
+  setFormData({ ...item }); // Pre-fill form with item data for editing
+  setShowForm(true);
+};
+
 
   const openFormForAdd = async () => {
 
-    const name = document.getElementById("name");
+    // const name = document.getElementById("name");
 
-    const price = document.getElementById("price"); 
+    // const price = document.getElementById("price"); 
 
-    const size = document.getElementById("size"); 
+    // const size = document.getElementById("size"); 
 
-    const color = document.getElementById("color");
+    // const color = document.getElementById("color");
 
-    const image = document.getElementById("imageURL")
+    // const image = document.getElementById("imageURL")
 
-    var data = {title:title, author:author, genre:genre, pubYear:pubYear}
+    // var data = {title:title, author:author, genre:genre, pubYear:pubYear}
 
-    try{
+    // try{
 
-    const response = await fetch("http://127.0.0.1:5000/api/v1/admin/books", {
-      method:'POST',
-      headers:{
-        'Content-Type': 'application/json',
-      }, 
-      body:JSON.stringify({ "id": 1000, "name":name, "price":price, "size":size, "color":color, "image":image, "category_id":"street" }),
+    // const response = await fetch("http://127.0.0.1:5000/api/v1/admin/books", {
+    //   method:'POST',
+    //   headers:{
+    //     'Content-Type': 'application/json',
+    //   }, 
+    //   body:JSON.stringify({ "id": 1000, "name":name, "price":price, "size":size, "color":color, "image":image, "category_id":"street" }),
 
-    })
+    // })
 
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
+    // if (!response.ok) {
+    //   throw new Error('Network response was not ok');
+    // }
 
-    const responseData = await response.json();
-      console.log('Data sent successfully:', responseData);
-    } 
+    // const responseData = await response.json();
+    //   console.log('Data sent successfully:', responseData);
+    // } 
     
-    catch (error) {
-      console.error('There was a problem with the fetch operation:', error);
-    }
+    // catch (error) {
+    //   console.error('There was a problem with the fetch operation:', error);
+    // }
 
 
-    // setEditingItem(null);
-    // setFormData({ name: '', price: '', size: '', color: '', image: '' }); // Reset form data for new item
-    // setShowForm(true);
-  };
-
-  const openFormForEdit = (item) => {
-    setEditingItem(item);
-    setFormData({ ...item }); // Pre-fill form with item data for editing
+    setEditingItem(null);
+    setFormData({ name: '', price: '', size: '', color: '', image: ''}); // Reset form data for new item
     setShowForm(true);
   };
+
+
 
   const closeForm = () => {
     setShowForm(false);
@@ -134,14 +136,14 @@ const handleDelete = (itemId) => {
       <button onClick={openFormForAdd}>Add New Item</button>
       {showForm && (
         <div>
-          <input id="name" type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Name" />
-          <input id="price" type="number" name="price" value={formData.price} onChange={handleChange} placeholder="Price" />
-          <input id="size" type="text" name="size" value={formData.size} onChange={handleChange} placeholder="Size" />
-          <input id="color" type="text" name="color" value={formData.color} onChange={handleChange} placeholder="Color" />
-          <input id="imageURL" type="text" name="image" value={formData.image} onChange={handleChange} placeholder="Image URL" />
-          <input id="category"></input>
-          <button onClick={handleSubmit}>Submit</button>
-          <button onClick={closeForm}>Cancel</button>
+          <input className="text-black" id="name" type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Name" /><br /><br />
+          <input className="text-black" id="price" type="number" name="price" value={formData.price} onChange={handleChange} placeholder="Price" /><br /><br />
+          <input className="text-black" id="size" type="text" name="size" value={formData.size} onChange={handleChange} placeholder="Size" /><br /><br />
+          <input className="text-black" id="color" type="text" name="color" value={formData.color} onChange={handleChange} placeholder="Color" /><br /><br />
+          <input className="text-black" id="imageURL" type="text" name="image" value={formData.image} onChange={handleChange} placeholder="Image URL" /><br /><br />
+          {/* <input className="text-black" id="category" type="text" name="image" value={formData.image} onChange={handleChange} placeholder="Category" ></input><br /><br /> */}
+          <button onClick={handleSubmit} className="bg-yellow-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full">Submit</button>
+          <button onClick={closeForm} className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full">Cancel</button><br />
         </div>
       )}
       <div style={{ display: 'flex', flexWrap: 'wrap' }}>

@@ -44,20 +44,20 @@ export default function Books() {
         }
     };
 
-    const statusUpdate = async () => {
+    const statusUpdate = async (id) => {
 
         const status = 1;
 
         try{
             const response = await 
-                fetch("http://127.0.0.1:5000/api/v1/admin/books/4", {
+                fetch("http://127.0.0.1:5000/api/v1/admin/books/{id}", {
 
                 method:'PUT', 
                 headers: {
                     'Content-Type':'application/json',
                 },
 
-                body:JSON.stringify({'id': 4, 'status': status}),
+                body:JSON.stringify({'id': id, 'status': status}),
 
 
                 })
@@ -94,10 +94,12 @@ export default function Books() {
 
                 {posts.map((post) => (
                     <div key={post.id} style={{ border: '1px solid #ccc', padding: '10px', margin: '10px', width: '250px' }}>
-                        <img src={'https://static.standard.co.uk/s3fs-public/thumbnails/image/2019/10/04/15/gettyimages-1146873446.jpg?width=1200'} alt="Book Cover" style={{ maxWidth: '100%', height: 'auto' }} />
+                        <img src={post.link} alt="Book Cover" style={{ width: '250px', height: '300px' }} />
                         
                         
                         <div>
+
+                            <p>Title : {post.title}</p>
 
                             <p>Genre: {post.genre}</p>
                             <p>ISBN: {post.isbn}</p>
@@ -112,7 +114,7 @@ export default function Books() {
 
                             {(post.status === 0) ? 
 
-                            (<button onClick={statusUpdate} class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Reserve</button>) : (<button class="bg-red-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" >Reserved</button>)}
+                            (<button onClick={() => statusUpdate(item.id)} class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Reserve</button>) : (<button class="bg-red-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" >Reserved</button>)}
 
 
 

@@ -73,13 +73,9 @@ const handleDelete = (itemId) => {
   };
 
   const openFormForEdit = (item) => {
-    // setEditingItem(item);
-    // setFormData({ ...item }); // Pre-fill form with item data for editing
-    // setShowForm(true);
-
-
-
-
+    setEditingItem(item);
+    setFormData({ ...item }); // Pre-fill form with item data for editing
+    setShowForm(true);
   };
 
   const closeForm = () => {
@@ -99,23 +95,27 @@ const handleDelete = (itemId) => {
   };
 return (
     <div>
+      <div style={{ textAlign: 'center', padding: '20px' }}>
       <h1>Women's Clothing</h1>
       <button onClick={openFormForAdd}>Add New Item</button>
+      </div>
       {showForm && (
+        <div style={{ textAlign: 'center', padding: '20px' }}>
         <div>
-          <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Name" />
-          <input type="number" name="price" value={formData.price} onChange={handleChange} placeholder="Price" />
-          <input type="text" name="size" value={formData.size} onChange={handleChange} placeholder="Size" />
-          <input type="text" name="color" value={formData.color} onChange={handleChange} placeholder="Color" />
-          <input type="text" name="image" value={formData.image} onChange={handleChange} placeholder="Image URL" />
-          <button onClick={handleSubmit}>Submit</button>
-          <button onClick={closeForm}>Cancel</button>
+          <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Name" /><br /><br />
+          <input type="number" name="price" value={formData.price} onChange={handleChange} placeholder="Price" /><br /><br />
+          <input type="text" name="size" value={formData.size} onChange={handleChange} placeholder="Size" /><br /><br />
+          <input type="text" name="color" value={formData.color} onChange={handleChange} placeholder="Color" /><br /><br />
+          <input type="text" name="image" value={formData.image} onChange={handleChange} placeholder="Image URL" /><br /><br />
+          <button onClick={handleSubmit} className='bg-blue-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full'>Submit</button>
+          <button onClick={closeForm} className='bg-yellow-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full'>Cancel</button>
+        </div>
         </div>
       )}
       <div style={{ display: 'flex', flexWrap: 'wrap' }}>
         {items.map(item => (
           <div key={item.id} style={{ margin: '10px', padding: '10px', border: '1px solid #ddd' }}>
-            <h2>{item.name}</h2>
+            <h2 style={{ textAlign: 'center', padding: '20px' }}>{item.name}</h2>
             {/* <Image 
 
               src="/static/Images/WomenClothes/${item.image}"
@@ -123,13 +123,17 @@ return (
               height={30}
 
             /> */}
-            <img src={item.image} alt={item.name} style={{ width: '100px', height: '100px' }} />
-            <p>Price: ${item.price}</p>
-            <p>Size: {item.size}</p>
-            <p>Color: {item.color}</p>
-            <p>Category: {item.category_name}</p>
-            {/* <button onClick={() => openFormForEdit(item)}>Edit</button> */}
-            <button onClick={() => handleDelete(item.id)} class="bg-red-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Delete</button>
+            <img src={item.image} alt={item.name} style={{ width: '250px', height: '300px' }} />
+            <p style={{ textAlign: 'center', padding: '10px' }}>Price: ${item.price}</p>
+            <p style={{ textAlign: 'center', padding: '10px' }}>Size: {item.size}</p>
+            <p style={{ textAlign: 'center', padding: '10px' }}>Color: {item.color}</p>
+            <p style={{ textAlign: 'center', padding: '10px' }}>Category: {item.category_name}</p>
+            <div style={{ textAlign: 'center', padding: '20px' }}>
+
+            <button onClick={() => openFormForEdit(item)}  class="bg-yellow-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Edit</button><br /><br/>
+            <button onClick={() => handleDelete(item.id)}   class="bg-red-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Delete</button>
+          </div>
+          
           </div>
         ))}
       </div>
