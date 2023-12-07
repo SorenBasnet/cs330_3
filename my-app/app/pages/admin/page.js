@@ -57,7 +57,7 @@ export default function Home() {
                 
                 <th style={navStyle}>
                   <div onMouseEnter={() => setShowClothingDropdown(true)} onMouseLeave={() => setShowClothingDropdown(false)}>
-                    <Link href="/clothings">Clothings</Link>
+                    <Link href="">Clothings</Link>
                     {showClothingDropdown && (
                       <div style={dropdownStyle}>
                         <Link href="/pages/admin/men/" style={navStyle}>Men&apos;s Clothing</Link>
@@ -74,6 +74,10 @@ export default function Home() {
         </div>
         <br />
         
+      </div>
+
+      <div>
+
       </div>
     </>
   );

@@ -138,22 +138,34 @@ export default function BooksPage() {
 <>
 
     
+      <div className='bg-zinc-700 '>
+      <div style={{ textAlign: 'center', padding: '20px' }}>
+      <h1 className='text-white text-4xl font-semibold' >Books</h1>
       
-
-      <h1>Books</h1>
       <button onClick={openFormForAdd}>Add New Book</button>
+
+      
       {showForm && (
-        <div>
 
-          <input id="title" type="text" name="title" value={formData.title} onChange={handleChange} placeholder="Title" />
-          <input id="author" type="text" name="author" value={formData.author} onChange={handleChange} placeholder="Author" />
-          <input id="genre" type="text" name="genre" value={formData.genre} onChange={handleChange} placeholder="Genre" />
-          <input id="pubYear" type="number" name="publicationYear" value={formData.publicationYear} onChange={handleChange} placeholder="Publication Year" />
+<div style={{ textAlign: 'center', padding: '20px' }}>
 
-          <button onClick={handleSubmit}>Submit</button>
-          <button onClick={closeForm}>Cancel</button>
+        <div className='justify-self-center'>
+
+          <input className="text-black'" id="title" type="text" name="title" value={formData.title} onChange={handleChange} placeholder="Title" /><br /><br />
+          <input className="text-black" id="author" type="text" name="author" value={formData.author} onChange={handleChange} placeholder="Author" /><br /> <br />
+          <input className="text-black" id="genre" type="text" name="genre" value={formData.genre} onChange={handleChange} placeholder="Genre" /><br /> <br />
+          <input className="text-black" id="pubYear" type="number" name="publicationYear" value={formData.publicationYear} onChange={handleChange} placeholder="Publication Year" /><br /> <br />
+
+          <button onClick={handleSubmit} className='class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"'>Submit</button>
+          <button onClick={closeForm} className='class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full"'>Cancel</button>
         </div>
+
+        </div>
+
       )}
+
+<div style={{ textAlign: 'center', padding: '20px' }}>
+ 
       <div style={{ display: 'flex', flexWrap: 'wrap' }}>
         {books.map(book => (
           <div key={book.id} style={{ margin: '10px', padding: '10px', border: '1px solid #ddd' }}>
@@ -161,10 +173,15 @@ export default function BooksPage() {
             <p>Author: {book.author}</p>
             <p>Genre: {book.genre}</p>
             <p>Publication Year: {book.publicationYear}</p>
-            <button onClick={() => openFormForEdit(book)}>Edit</button>
-            <button onClick={() => handleDelete(book.id)}>Delete</button>
+            <button onClick={() => openFormForEdit(book)} className='class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"'>Edit</button>
+            <button onClick={() => handleDelete(book.id)} className='class="bg-blue-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full"'>Delete</button>
           </div>
         ))}
+      </div>
+
+      </div>
+
+      </div>
       </div>
 
 

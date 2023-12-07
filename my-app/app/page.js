@@ -55,6 +55,7 @@ export default function Home() {
       margin: '20px auto',
       width: '300px',
       backgroundColor: '#E5E5E5',
+      color:'black',
       borderRadius: '8px',
       boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)'
     }}
@@ -191,7 +192,7 @@ export default function Home() {
             alignItems:"center"
           }}>
 
-<p>President's Message</p>
+<p className='text-black'>President's Message</p>
 
 </div>
 
@@ -223,12 +224,12 @@ export default function Home() {
 
           <br />
 
-          <p>Sustainability is not merely a buzzword, but a profound ethos that whispers to the
+          <p className='text-black'>Sustainability is not merely a buzzword, but a profound ethos that whispers to the
              very soul of our existence. It is the symphony of conscious choices playing in harmony 
              with the delicate rhythm of Mother Earth. Imagine, if you will, a dance between humanity 
              and nature, where each step taken is a pledge to preserve, protect, and prosper together.</p>
 
-             <p>Sustainability is the guardian of our shared future, urging us to be stewards of the air we 
+             <p className='text-black'>Sustainability is the guardian of our shared future, urging us to be stewards of the air we 
               breathe, the water we drink, and the soil that cradles life. It beckons us to reconsider our 
               relationship with consumption, to view waste not as a burden, but as an opportunity for renewal. 
               In the grand tapestry of time, sustainability is the golden thread that weaves through generations,
@@ -249,7 +250,7 @@ export default function Home() {
             justifyContent:"center",
             alignItems:"center"
           }}>
-          <p style={{navStyle}}>&copy; Site Managed and Maintained by<br /><a onClick={() => setShowForm(!showForm)} style={navStyle}>Hogwarts Tech Services</a></p>
+          <p style={{navStyle}} className='text-black'>&copy; Site Managed and Maintained by<br /><a onClick={() => setShowForm(!showForm)} style={navStyle}>Hogwarts Tech Services</a></p>
           </div>
         </footer>
 

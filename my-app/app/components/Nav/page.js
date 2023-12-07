@@ -148,8 +148,8 @@ const Nav = () => {
                     <Link href="/">Clothings</Link>
                     {showClothingDropdown && (
                       <div style={dropdownStyle}>
-                        <Link href="/clothings/men" style={navStyle}>Men&apos;s Clothing</Link>
-                        <Link href="/clothings/women" style={navStyle}>Women&apos;s Clothing</Link>
+                        <Link href="/pages/clothings/men" style={navStyle}>Men&apos;s Clothing</Link>
+                        <Link href="/pages/clothings/women" style={navStyle}>Women&apos;s Clothing</Link>
                       </div>
                     )}
                   </div>
